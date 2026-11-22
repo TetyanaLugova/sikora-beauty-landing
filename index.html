@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sikora Beauty — косметологиня Ярина Сікора, Львів</title>
+<meta name="description" content="Косметологиня з вищою медичною освітою у Львові. Фотоомолодження й фотоепіляція IPL, пілінги, чистки, масажі, апаратна косметологія. Вул. Янева, 23, ЖК «Америка». Онлайн-запис 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#4A2C5E; --plum-deep:#2E1A3B; --plum-soft:#6B4A80; --lilac:#9C7BB5;
+  --milk:#FAF7F4; --lav:#EEE8F1; --gold:#C8A97E; --gold-soft:#E6D5BC;
+  --ink:#2B2530; --muted:#6E6475; --line:rgba(74,44,94,.14);
+  --r:22px; --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--milk);color:var(--ink);font:400 16px/1.6 Manrope,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(38px,5.4vw,76px)}
+h1 em,h2 em{font-style:italic;color:var(--plum-soft)}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--plum)}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+section{position:relative}
+.muted{color:var(--muted)}
+
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;padding:17px 30px;border-radius:100px;font-weight:600;font-size:15px;transition:transform .5s var(--ease),background .4s,color .4s,border-color .4s;overflow:hidden;isolation:isolate;white-space:nowrap}
+.btn-primary{background:var(--plum);color:#fff;box-shadow:0 14px 34px -14px rgba(74,44,94,.7)}
+.btn-primary::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(230,213,188,.55),transparent 70%);opacity:0;transition:opacity .4s}
+.btn-primary:hover::before{opacity:1}
+.btn-primary:hover{background:var(--plum-soft)}
+.btn-ghost{border:1px solid var(--line);background:rgba(255,255,255,.55);backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:var(--plum);background:#fff}
+.btn-light{background:var(--milk);color:var(--plum)}
+.btn-light:hover{background:#fff}
+.btn .arr{transition:transform .4s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* nav */
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;width:min(1240px,100% - 24px);display:flex;align-items:center;justify-content:space-between;padding:8px 10px 8px 20px;border-radius:100px;transition:background .5s,box-shadow .5s;border:1px solid transparent}
+.nav.scrolled{background:rgba(250,247,244,.8);backdrop-filter:blur(16px) saturate(1.4);box-shadow:0 10px 40px -20px rgba(46,26,59,.35);border-color:rgba(255,255,255,.6)}
+.nav .logo img{height:46px;width:auto}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:500}
+.nav ul a{position:relative;padding:4px 0}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--plum);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:12px 22px;font-size:14px}
+
+/* HERO */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.08fr .92fr;padding-top:92px;overflow:hidden}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:40px 5vw 60px max(20px,calc((100vw - 1240px)/2))}
+.hero h1{font-size:clamp(46px,6vw,96px);margin:24px 0 26px}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .line span{display:block;transform:translateY(108%);animation:rise 1.2s var(--ease) forwards}
+.hero h1 .line:nth-child(2) span{animation-delay:.12s}
+.hero h1 .line:nth-child(3) span{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:480px;margin-bottom:36px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;margin-top:54px;border-top:1px solid var(--line);padding-top:24px;max-width:580px}
+.facts div{flex:1;padding-right:18px}
+.facts div+div{padding-left:18px;border-left:1px solid var(--line)}
+.facts b{display:block;font-family:"Cormorant Garamond",serif;font-size:42px;font-weight:500;color:var(--plum);line-height:1}
+.facts span{font-size:13px;color:var(--muted);line-height:1.35;display:block;margin-top:6px}
+.fade-up{opacity:0;transform:translateY(24px);animation:fu 1.1s var(--ease) forwards}
+@keyframes fu{to{opacity:1;transform:none}}
+
+.hero-visual{position:relative;margin:0 20px 20px 0;border-radius:0 0 0 220px;background:radial-gradient(120% 90% at 30% 20%,#5d3b74 0%,var(--plum) 40%,var(--plum-deep) 100%);overflow:hidden;min-height:600px}
+.portrait{position:absolute;left:50%;transform:translateX(-50%);width:80%;aspect-ratio:.95;top:15%;border-radius:999px 999px 0 0;overflow:hidden;background:#EAE6E3;box-shadow:0 0 0 1px rgba(230,213,188,.4),0 0 0 14px rgba(230,213,188,.06)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:54% 40%;transform:scale(1.08);animation:zoomout 2.4s var(--ease) forwards}
+@keyframes zoomout{to{transform:scale(1)}}
+.sweep{position:absolute;inset:-20%;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,240,220,.35) 48%,rgba(255,255,255,.6) 50%,rgba(255,240,220,.35) 52%,transparent 60%);mix-blend-mode:soft-light;animation:sweep 7s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-70%)}55%,100%{transform:translateX(70%)}}
+.orb{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none}
+.orb.a{width:320px;height:320px;background:#b88ccf;opacity:.35;top:-80px;right:-60px;animation:float 12s ease-in-out infinite}
+.orb.b{width:260px;height:260px;background:var(--gold);opacity:.22;bottom:10%;left:-80px;animation:float 14s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(30px,40px) scale(1.1)}}
+.badge-rot{position:absolute;right:24px;top:24px;width:124px;height:124px;z-index:3}
+.badge-rot svg{width:100%;height:100%;animation:spin 22s linear infinite}
+.badge-rot .c{position:absolute;inset:0;display:grid;place-items:center;font-family:"Great Vibes";font-size:40px;color:var(--gold-soft)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chip{position:absolute;z-index:3;background:rgba(250,247,244,.94);backdrop-filter:blur(10px);border-radius:18px;padding:12px 16px;display:flex;gap:12px;align-items:center;font-size:13px;line-height:1.35;box-shadow:0 20px 40px -20px rgba(0,0,0,.5);animation:bob 6s ease-in-out infinite}
+.chip i{flex:0 0 36px;height:36px;border-radius:50%;background:var(--lav);display:grid;place-items:center;font-style:normal;color:var(--plum)}
+.chip b{display:block;font-size:14px}
+.chip.c1{right:10px;top:24%}
+.chip.c2{left:3%;top:64%;animation-delay:-3s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+
+/* marquee */
+.marquee{background:var(--plum-deep);color:var(--gold-soft);overflow:hidden;padding:22px 0;transform:rotate(-1.2deg);margin:-10px -20px 0;position:relative;z-index:5}
+.marquee .track{display:flex;gap:56px;width:max-content;animation:mq 40s linear infinite}
+.marquee span{font-family:"Cormorant Garamond",serif;font-size:30px;font-style:italic;display:flex;align-items:center;gap:56px;white-space:nowrap}
+.marquee span::after{content:"✦";font-style:normal;font-size:16px;color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* problems */
+.problems{padding:150px 0 120px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:60px;flex-wrap:wrap}
+.sec-head p{max-width:420px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pcard{position:relative;border-radius:var(--r);padding:28px 26px 26px;min-height:280px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;transition:transform .6s var(--ease),color .5s,border-color .5s}
+.pcard::before{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,50%) var(--my,0%),#6B4A80,var(--plum) 45%,var(--plum-deep));opacity:0;transition:opacity .6s var(--ease)}
+.pcard>*{position:relative}
+.pcard:hover{transform:translateY(-8px);color:#fff;border-color:transparent}
+.pcard:hover::before{opacity:1}
+.pcard .top{display:flex;justify-content:space-between;align-items:start}
+.pcard .num{font-size:12px;letter-spacing:.2em;color:var(--gold)}
+.pcard svg{width:56px;height:56px;stroke:var(--gold);fill:none;stroke-width:1.2;transition:transform .8s var(--ease)}
+.pcard:hover svg{transform:rotate(-12deg) scale(1.12)}
+.pcard h3{font-size:30px;margin:auto 0 10px;padding-top:40px}
+.pcard p{font-size:14px;opacity:.75}
+.pcard .go{margin-top:16px;font-size:13px;font-weight:600;display:flex;gap:8px;color:var(--plum);transition:color .5s}
+.pcard:hover .go{color:var(--gold-soft)}
+
+/* services */
+.services{padding:120px 0;background:var(--lav);border-radius:60px 60px 0 0}
+.tabs{display:inline-flex;gap:4px;padding:6px;background:#fff;border-radius:100px;margin-bottom:40px;position:relative;flex-wrap:wrap;max-width:100%}
+.tabs button{position:relative;z-index:1;padding:12px 22px;border-radius:100px;font-weight:600;font-size:14px;color:var(--muted);transition:color .4s}
+.tabs button.on{color:#fff}
+.tabs .pill{position:absolute;top:6px;height:calc(100% - 12px);border-radius:100px;background:var(--plum);transition:left .55s var(--ease),width .55s var(--ease),top .55s var(--ease)}
+.svc-panel{display:none;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start}
+.svc-panel.on{display:grid;animation:fu .7s var(--ease)}
+.svc-feature{position:relative;border-radius:30px;padding:40px;background:var(--plum);color:#fff;overflow:hidden;min-height:520px;display:flex;flex-direction:column;position:sticky;top:100px}
+.svc-feature .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.45;mix-blend-mode:luminosity;transition:transform 1.2s var(--ease)}
+.svc-feature:hover .bg{transform:scale(1.05)}
+.svc-feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,26,59,.2) 0%,rgba(46,26,59,.5) 40%,rgba(46,26,59,.95) 100%)}
+.svc-feature>*:not(.bg){position:relative;z-index:1}
+.svc-feature .glow{position:absolute;width:520px;height:520px;border-radius:50%;right:-200px;top:-200px;background:radial-gradient(circle,rgba(230,213,188,.5),rgba(184,140,207,.2) 40%,transparent 70%);animation:pulse 5s ease-in-out infinite;z-index:1}
+@keyframes pulse{50%{transform:scale(1.15);opacity:.7}}
+.svc-feature .tag{align-self:flex-start;border:1px solid rgba(230,213,188,.5);color:var(--gold-soft);padding:6px 14px;border-radius:100px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.svc-feature h3{font-size:clamp(40px,4.4vw,64px);margin:auto 0 14px}
+.svc-feature p{opacity:.85;max-width:440px}
+.svc-feature .meta{display:flex;gap:28px;margin:24px 0 26px;flex-wrap:wrap}
+.svc-feature .meta b{display:block;font-family:"Cormorant Garamond";font-size:34px;font-weight:500;color:var(--gold-soft);line-height:1.1}
+.svc-feature .meta span{font-size:12px;opacity:.75}
+.svc-feature .btn{align-self:flex-start}
+.svc-list{display:flex;flex-direction:column;gap:8px}
+.svc{display:grid;grid-template-columns:1fr auto;gap:2px 18px;align-items:center;padding:18px 22px;background:#fff;border-radius:16px;transition:transform .5s var(--ease),box-shadow .5s}
+.svc:hover{transform:translateX(6px);box-shadow:0 20px 40px -26px rgba(74,44,94,.6)}
+.svc h4{font-family:"Cormorant Garamond";font-size:23px;font-weight:500;line-height:1.15}
+.svc .price{font-weight:700;color:var(--plum);white-space:nowrap;text-align:right}
+.svc .price s{font-weight:500;color:var(--muted);font-size:13px;margin-right:6px}
+.svc small{color:var(--muted);font-size:13px;grid-column:1/-1}
+.svc.hot{background:var(--plum-deep);color:#fff}
+.svc.hot .price{color:var(--gold-soft)}
+.svc.hot small,.svc.hot .price s{color:rgba(255,255,255,.6)}
+.list-label{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--plum);margin:18px 4px 4px}
+.list-label:first-child{margin-top:0}
+.note{margin-top:24px;font-size:13px;color:var(--muted)}
+
+/* process */
+.process{padding:140px 0;background:var(--plum-deep);color:#fff;overflow:hidden}
+.process .eyebrow{color:var(--gold-soft)}
+.process h2 em{color:var(--gold-soft)}
+.process .quote{font-family:"Cormorant Garamond";font-style:italic;font-size:clamp(22px,2.2vw,30px);line-height:1.3;color:var(--gold-soft);max-width:640px;margin-top:28px;opacity:.9}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;position:relative}
+.steps .rail{position:absolute;top:30px;left:0;right:0;height:1px;background:rgba(230,213,188,.2)}
+.steps .rail i{position:absolute;inset:0;background:linear-gradient(90deg,var(--gold),var(--gold-soft));transform-origin:left;transform:scaleX(var(--p,0))}
+.step{padding-right:30px}
+.step .dot{width:60px;height:60px;border-radius:50%;border:1px solid rgba(230,213,188,.4);display:grid;place-items:center;background:var(--plum-deep);font-family:"Cormorant Garamond";font-size:24px;color:var(--gold-soft);transition:.6s var(--ease);position:relative}
+.step.lit .dot{background:var(--gold);color:var(--plum-deep);border-color:var(--gold);box-shadow:0 0 0 8px rgba(200,169,126,.15),0 0 40px rgba(200,169,126,.5)}
+.step h3{font-size:30px;margin:30px 0 12px}
+.step p{font-size:14px;opacity:.72}
+.consult{margin-top:90px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;padding:36px 40px;border-radius:30px;background:linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(230,213,188,.2)}
+.consult .big{font-family:"Cormorant Garamond";font-size:72px;line-height:1;color:var(--gold-soft)}
+.consult .big small{font-size:22px}
+.consult .big em{display:block;font-size:14px;font-family:Manrope;font-style:normal;opacity:.6;margin-top:6px}
+.consult ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:14px;opacity:.88}
+.consult li::before{content:"✦ ";color:var(--gold)}
+
+/* online */
+.online{padding:130px 0 40px}
+.online-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.online-photo{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/5}
+.online-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.online-photo .live{position:absolute;left:18px;top:18px;display:flex;align-items:center;gap:8px;background:rgba(250,247,244,.92);padding:8px 14px;border-radius:100px;font-size:13px;font-weight:600}
+.online-photo .live::before{content:"";width:8px;height:8px;border-radius:50%;background:#7bc47f;box-shadow:0 0 0 0 rgba(123,196,127,.6);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(123,196,127,0)}100%{box-shadow:0 0 0 0 rgba(123,196,127,0)}}
+.online-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0}
+.online-list div{padding:22px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.online-list b{font-family:"Cormorant Garamond";font-size:24px;font-weight:500;display:block;margin-bottom:4px}
+.online-list span{font-size:14px;color:var(--muted)}
+
+/* before/after */
+.ba{padding:140px 0}
+.ba-grid{display:grid;grid-template-columns:1fr auto;gap:70px;align-items:center}
+.honest{display:flex;gap:16px;align-items:flex-start;margin-top:26px;padding:20px 22px;border-left:2px solid var(--gold);background:linear-gradient(90deg,var(--lav),transparent);border-radius:0 16px 16px 0;max-width:520px}
+.honest p{font-family:"Cormorant Garamond";font-style:italic;font-size:22px;line-height:1.3;color:var(--plum)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 20px}
+.filters button{padding:10px 18px;border-radius:100px;border:1px solid var(--line);font-size:14px;font-weight:500;transition:.4s}
+.filters button.on,.filters button:hover{background:var(--plum);color:#fff;border-color:var(--plum)}
+.ba-case b{display:block;font-family:"Cormorant Garamond";font-size:28px;font-weight:500}
+.ba-case ul{list-style:none;margin-top:10px;color:var(--muted);font-size:15px}
+.ba-case li::before{content:"✓ ";color:var(--gold);font-weight:700}
+.slider-wrap{position:relative}
+.slider-wrap::before{content:"";position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(156,123,181,.35),transparent 65%);filter:blur(20px);z-index:-1}
+.slider{position:relative;width:min(340px,82vw);aspect-ratio:var(--ar,.52);border-radius:200px 200px 26px 26px;overflow:hidden;user-select:none;touch-action:pan-y;cursor:ew-resize;box-shadow:0 40px 80px -40px rgba(46,26,59,.7);background:#ddd;transition:aspect-ratio .6s var(--ease)}
+.slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.slider .after{clip-path:inset(0 0 0 var(--x,50%))}
+.slider .lbl{position:absolute;bottom:18px;padding:6px 14px;border-radius:100px;background:rgba(255,255,255,.9);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;z-index:3}
+.slider .lbl.l{left:16px}.slider .lbl.r{right:16px;background:var(--plum);color:#fff}
+.slider .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;transform:translateX(-1px);z-index:4}
+.slider .handle span{position:absolute;top:50%;left:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--plum);box-shadow:0 10px 30px rgba(0,0,0,.25);font-size:16px;letter-spacing:4px;transition:transform .3s}
+.slider:active .handle span{transform:scale(.9)}
+.drag-hint{text-align:center;font-size:12px;color:var(--muted);margin-top:14px;letter-spacing:.1em}
+
+/* about */
+.about{padding:140px 0;background:var(--lav);border-radius:60px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-photo{position:relative;aspect-ratio:9/10}
+.about-photo .frame{position:absolute;inset:0;border-radius:200px 200px 30px 30px;overflow:hidden}
+.about-photo .frame img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.about-photo .stamp{position:absolute;right:-24px;bottom:50px;background:var(--milk);border-radius:24px;padding:20px 22px;box-shadow:0 30px 60px -30px rgba(46,26,59,.5);max-width:240px}
+.about-photo .stamp b{font-family:"Cormorant Garamond";font-size:24px;font-weight:500;color:var(--plum);line-height:1.15;display:block;margin-bottom:6px}
+.about-photo .stamp span{font-size:13px;color:var(--muted);line-height:1.4;display:block}
+.about-photo .ipl{position:absolute;left:-30px;top:20px;width:150px;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:6px solid var(--milk);box-shadow:0 30px 50px -25px rgba(46,26,59,.6);transform:rotate(-6deg);animation:bob 7s ease-in-out infinite}
+.about-photo .ipl img{width:100%;height:100%;object-fit:cover}
+.about blockquote{font-family:"Cormorant Garamond";font-size:clamp(26px,2.6vw,36px);line-height:1.25;font-style:italic;color:var(--plum);margin:28px 0}
+.about p{color:var(--muted);margin-bottom:16px;max-width:540px}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.creds div{padding:16px 18px;border-radius:16px;background:#fff;border:1px solid var(--line);font-size:14px;line-height:1.4}
+.creds div b{display:block;color:var(--plum);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+.safe{margin-top:14px;display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:16px;background:var(--plum);color:#fff;font-size:14px}
+.safe i{flex:0 0 40px;height:40px;border-radius:50%;background:rgba(230,213,188,.18);display:grid;place-items:center;font-style:normal;color:var(--gold-soft);font-size:18px}
+.about .signature{width:200px;margin-top:22px}
+
+/* brands */
+.brands{padding:120px 0 40px;text-align:center}
+.brand-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:50px}
+.brand{padding:40px 20px;border-radius:var(--r);border:1px solid var(--line);background:#fff;transition:.6s var(--ease)}
+.brand b{font-family:"Cormorant Garamond";font-size:30px;font-weight:500;display:block}
+.brand small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-top:10px}
+.brand:hover{transform:translateY(-6px) rotate(-1deg);background:var(--plum);color:#fff;border-color:var(--plum)}
+.also{margin-top:26px;color:var(--muted);font-size:14px}
+.also b{color:var(--ink);font-weight:600}
+.tech{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:40px}
+.tech span{padding:10px 18px;border-radius:100px;background:var(--lav);font-size:14px}
+.tech span b{color:var(--plum)}
+
+/* reviews */
+.reviews{padding:100px 0 140px;overflow:hidden}
+.rev-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px;margin-top:50px}
+.rev{background:#fff;border-radius:28px;padding:36px;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .5s var(--ease)}
+.rev:nth-child(1){transform:rotate(-.8deg)}
+.rev:nth-child(2){background:var(--plum);color:#fff;transform:rotate(1deg) translateY(30px)}
+.rev:nth-child(3){background:var(--lav);transform:rotate(-.4deg)}
+.rev:hover{transform:rotate(0) translateY(-6px)}
+.rev .stars{color:var(--gold);letter-spacing:4px}
+.rev p{font-family:"Cormorant Garamond";font-size:24px;line-height:1.3;margin:18px 0 26px}
+.rev .who{margin-top:auto;font-size:13px;opacity:.7;letter-spacing:.06em}
+.rev-more{margin-top:70px;text-align:center}
+
+/* faq */
+.faq{padding:120px 0;background:#fff;border-radius:60px 60px 0 0}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;text-align:left;font-family:"Cormorant Garamond";font-size:clamp(22px,2.2vw,30px);font-weight:500}
+.qa .pm{flex:0 0 40px;height:40px;border-radius:50%;border:1px solid var(--line);position:relative;transition:.5s var(--ease)}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.5px;background:currentColor;transform:translate(-50%,-50%);transition:.5s var(--ease)}
+.qa .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa.open .pm{background:var(--plum);color:#fff;border-color:var(--plum);transform:rotate(180deg)}
+.qa.open .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.qa.open .ans{grid-template-rows:1fr}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{padding:0 60px 26px 0;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--plum);color:#fff;padding:140px 0 0;overflow:hidden}
+.contact .orb.a{top:10%;left:60%}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;position:relative;z-index:1}
+.contact h2{font-size:clamp(48px,7vw,110px)}
+.contact h2 em{color:var(--gold-soft)}
+.contact p.lead{opacity:.85;max-width:440px;margin:24px 0 36px;font-size:17px}
+.win{margin-top:50px;border-radius:200px 200px 24px 24px;overflow:hidden;max-width:420px;aspect-ratio:16/11;position:relative}
+.win img{width:100%;height:100%;object-fit:cover;object-position:40% 40%}
+.win::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(46,26,59,.55))}
+.win span{position:absolute;left:22px;bottom:16px;z-index:1;font-family:"Cormorant Garamond";font-style:italic;font-size:20px;color:var(--gold-soft)}
+.info a,.info div{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;border-bottom:1px solid rgba(230,213,188,.2);transition:padding .5s var(--ease)}
+.info a:hover{padding-left:12px}
+.info small{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);opacity:.85;flex:0 0 auto}
+.info span{font-family:"Cormorant Garamond";font-size:26px;text-align:right;line-height:1.2}
+.info span em{display:block;font-size:15px;opacity:.7}
+.lviv{display:block;width:100%;margin-top:100px;height:auto;position:relative;z-index:1}
+footer{background:var(--plum-deep);color:rgba(255,255,255,.6);font-size:13px;padding:28px 0 100px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer img{height:40px}
+
+.mcta{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:120;transform:translateY(140%);transition:transform .6s var(--ease)}
+.mcta.show{transform:none}
+.mcta .btn{width:100%;justify-content:center}
+
+.cglow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:1;left:0;top:0;background:radial-gradient(circle,rgba(200,169,126,.16),transparent 65%);transform:translate(-50%,-50%);mix-blend-mode:multiply}
+
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.split .w>span{display:inline-block;transform:translateY(110%);transition:transform 1s var(--ease)}
+.split.in .w>span{transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.split .w>span,.hero h1 .line span,.fade-up,.portrait img{opacity:1;transform:none}
+}
+@media (max-width:1080px){
+  .nav ul{display:none}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .svc-panel.on,.ba-grid,.about-grid,.faq-grid,.contact-grid,.online-grid{grid-template-columns:1fr}
+  .svc-feature{position:relative;top:0;min-height:440px}
+  .ba-grid{justify-items:center}
+  .steps{grid-template-columns:1fr 1fr;gap:50px 20px}
+  .steps .rail{display:none}
+  .consult{grid-template-columns:1fr}
+  .brand-row{grid-template-columns:1fr 1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .rev:nth-child(2){transform:rotate(1deg)}
+  .about-photo{max-width:520px}
+}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:80px}
+  .hero-text{padding:30px 20px 40px}
+  .hero-visual{margin:0 12px;border-radius:30px 30px 30px 140px;min-height:500px}
+  .chip.c2{display:none}
+  .portrait{top:auto;bottom:0;width:84%;aspect-ratio:.86}
+  .chip.c1{right:12px;top:auto;bottom:40px}
+  .badge-rot{width:92px;height:92px;right:12px;top:12px}
+  .facts b{font-size:32px}
+  .cards{grid-template-columns:1fr}
+  .pcard{min-height:220px}
+  .steps,.consult ul,.online-list,.creds{grid-template-columns:1fr}
+  .consult{padding:28px}
+  .svc-feature{padding:28px;min-height:420px}
+  .svc{padding:16px 18px}
+  .about-photo .stamp{right:10px;bottom:20px}
+  .about-photo .ipl{left:-6px;width:110px}
+  .services,.about,.faq{border-radius:36px}
+  .nav .btn{display:none}
+  .nav .logo img{height:40px}
+  .mcta{display:block}
+  .cglow{display:none}
+  .problems,.services,.process,.ba,.about,.faq,.contact,.online{padding-top:90px;padding-bottom:90px}
+  .contact{padding-bottom:0}
+  .qa .ans p{padding-right:0}
+  .tabs button{padding:10px 14px;font-size:13px}
+  .info span{font-size:21px}
+  .brand{padding:30px 12px}
+  .brand b{font-size:clamp(19px,5.6vw,26px)}
+}
+</style>
+</head>
+<body>
+
+<div class="cglow" id="cglow"></div>
+
+<nav class="nav" id="nav">
+  <a href="#top" class="logo" aria-label="Sikora Beauty"><img src="img/logo-sb.png" alt="Sikora Beauty, косметологія"></a>
+  <ul>
+    <li><a href="#about">Про мене</a></li>
+    <li><a href="#services">Процедури й ціни</a></li>
+    <li><a href="#results">Результати</a></li>
+    <li><a href="#online">Онлайн</a></li>
+    <li><a href="#contact">Контакти</a></li>
+  </ul>
+  <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-primary magnetic">Записатися <span class="arr">→</span></a>
+</nav>
+
+<!-- 1. HERO -->
+<header class="hero" id="top">
+  <div class="hero-text">
+    <span class="eyebrow fade-up">Косметологиня з вищою медичною освітою · Львів</span>
+    <h1>
+      <span class="line"><span>Гарна шкіра&nbsp;—</span></span>
+      <span class="line"><span>це не <em>везіння,</em></span></span>
+      <span class="line"><span>а системний підхід</span></span>
+    </h1>
+    <p class="lead fade-up" style="animation-delay:.5s">Не дорогі баночки з кремом і не одна «чарівна» процедура. Я Ярина Сікора: допомагаю розібратися зі своєю шкірою і будую стратегію догляду під вас.</p>
+    <div class="ctas fade-up" style="animation-delay:.65s">
+      <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-primary magnetic">Записатися на консультацію <span class="arr">→</span></a>
+      <a href="#services" class="btn btn-ghost">Ціни</a>
+    </div>
+    <div class="facts fade-up" style="animation-delay:.8s">
+      <div><b data-count="5" data-suffix="+">0</b><span>років практики в косметології</span></div>
+      <div><b data-count="4">0</b><span>бренди, амбасадоркою яких я є</span></div>
+      <div><b>24/7</b><span>онлайн-запис</span></div>
+    </div>
+  </div>
+
+  <div class="hero-visual" id="heroVisual">
+    <div class="orb a"></div><div class="orb b"></div>
+    <div class="portrait" data-depth="10">
+      <img src="img/portrait-new.jpg" alt="Ярина Сікора, косметологиня, у білій сорочці" fetchpriority="high">
+      <div class="sweep"></div>
+    </div>
+    <div class="badge-rot">
+      <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-48 0a48 48 0 1 1 96 0a48 48 0 1 1-96 0"/></defs>
+        <text font-family="Manrope" font-size="9.2" letter-spacing="3.2" fill="#E6D5BC"><textPath href="#circ">ОНЛАЙН-ЗАПИС 24/7 · SIKORA BEAUTY · </textPath></text></svg>
+      <div class="c">SB</div>
+    </div>
+    <div class="chip c1" data-depth="-22"><i>✦</i><div><b>Фотоомолодження IPL</b>Alvi Prague · від 2 500 ₴</div></div>
+    <div class="chip c2" data-depth="-32"><i>♡</i><div><b>«У мене ви в безпеці»</b>медична освіта</div></div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Фотоомолодження</span><span>Фотоепіляція</span><span>Пілінги</span><span>Чистки DMK</span><span>Фасціальне моделювання</span><span>Гідропілінг</span><span>Біоревіталізація</span><span>Ензимна терапія</span>
+    <span>Фотоомолодження</span><span>Фотоепіляція</span><span>Пілінги</span><span>Чистки DMK</span><span>Фасціальне моделювання</span><span>Гідропілінг</span><span>Біоревіталізація</span><span>Ензимна терапія</span>
+  </div>
+</div>
+
+<!-- 2. PROBLEMS -->
+<section class="problems" id="problems">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">До мене звертаються, коли турбує</span>
+        <h2 class="split" style="margin-top:18px">Почнімо з того, <em>що вас турбує</em></h2>
+      </div>
+      <p class="rv d2">Назви процедур знати не обов'язково. Виберіть, що хочете змінити, а що з цим робити, вирішимо на консультації.</p>
+    </div>
+    <div class="cards">
+      <a href="#services" data-tab="peel" class="pcard rv d1"><div class="top"><span class="num">01</span>
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22"/><path d="M22 30a4 4 0 1 0 8 0 4 4 0 1 0-8 0M36 40a3 3 0 1 0 6 0 3 3 0 1 0-6 0M38 24a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/></svg></div>
+        <h3>Акне й рубці</h3><p>Запалення, розширені пори, сліди після висипань</p><span class="go">Чистки, пілінги →</span></a>
+      <a href="#services" data-tab="hw" class="pcard rv d2"><div class="top"><span class="num">02</span>
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22"/><circle cx="24" cy="26" r="3"/><circle cx="38" cy="22" r="2"/><circle cx="36" cy="38" r="4"/><circle cx="22" cy="40" r="2"/></svg></div>
+        <h3>Пігментація</h3><p>Плями після сонця, нерівний тон, судинна сітка</p><span class="go">Фотоомолодження IPL →</span></a>
+      <a href="#services" data-tab="care" class="pcard rv d3"><div class="top"><span class="num">03</span>
+        <svg viewBox="0 0 64 64"><path d="M10 26c8-6 14-6 22 0s14 6 22 0"/><path d="M10 38c8-6 14-6 22 0s14 6 22 0"/><path d="M32 8v8M32 48v8"/></svg></div>
+        <h3>Вікові зміни</h3><p>Зморшки, втрата тонусу й контуру, «втомлене» обличчя</p><span class="go">Масажі, догляди →</span></a>
+      <a href="#services" data-tab="care" class="pcard rv d1"><div class="top"><span class="num">04</span>
+        <svg viewBox="0 0 64 64"><path d="M32 8c10 14 16 22 16 30a16 16 0 0 1-32 0c0-8 6-16 16-30z"/><path d="M26 40a6 6 0 0 0 6 6"/></svg></div>
+        <h3>Чутливість і сухість</h3><p>Почервоніння, стягнутість, реакція на звичний догляд</p><span class="go">Відновлювальні догляди →</span></a>
+      <a href="#services" data-tab="hw" class="pcard rv d2"><div class="top"><span class="num">05</span>
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="10"/><path d="M32 6v10M32 48v10M6 32h10M48 32h10M14 14l7 7M43 43l7 7M50 14l-7 7M21 43l-7 7"/></svg></div>
+        <h3>Тьмяний колір обличчя</h3><p>Сірість, нерівний рельєф, шкірі бракує сяйва</p><span class="go">Гідропілінг, біоревіталізація →</span></a>
+      <a href="#services" data-tab="epil" class="pcard rv d3"><div class="top"><span class="num">06</span>
+        <svg viewBox="0 0 64 64"><path d="M14 50C20 30 22 20 20 10M28 52c4-16 6-28 4-40M42 50c2-12 6-20 10-26"/><circle cx="46" cy="16" r="6"/></svg></div>
+        <h3>Небажане волосся</h3><p>Обличчя, пахви, бікіні, ноги. Без бритви й вростання</p><span class="go">Фотоепіляція →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Процедури й ціни · осінь 2026</span>
+        <h2 class="split" style="margin-top:18px">Прозорі <em>ціни</em>, без «пишіть у Директ»</h2>
+      </div>
+    </div>
+    <div class="tabs rv" id="tabs">
+      <span class="pill"></span>
+      <button class="on" data-t="hw">Апаратні</button>
+      <button data-t="epil">Фотоепіляція</button>
+      <button data-t="peel">Чистки й пілінги</button>
+      <button data-t="care">Догляди й масажі</button>
+      <button data-t="inj">Ін'єкційні</button>
+      <button data-t="body">Тіло</button>
+    </div>
+
+    <!-- Апаратні -->
+    <div class="svc-panel on" data-p="hw">
+      <div class="svc-feature">
+        <div class="bg" style="background-image:url(img/ipl.jpg)"></div><div class="glow"></div>
+        <span class="tag">Хіт кабінету · Alvi Prague IPL</span>
+        <h3>Фото&shy;омолодження</h3>
+        <p>Світло IPL працює з пігментацією й судинками, вирівнює тон і рельєф. Шкіра світлішає, зморшок стає менше.</p>
+        <div class="meta"><div><b>2 500 ₴</b><span>обличчя</span></div><div><b>2 900 ₴</b><span>обличчя + шия, декольте</span></div></div>
+        <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-light">Записатися <span class="arr">→</span></a>
+      </div>
+      <div class="svc-list">
+        <div class="svc hot"><h4>Фотоомолодження IPL, обличчя</h4><span class="price">2 500 ₴</span><small>Пігмент, судинки, тон</small></div>
+        <div class="svc"><h4>Фотоомолодження IPL + шия й декольте</h4><span class="price">2 900 ₴</span></div>
+        <div class="svc"><h4>Гідропілінг Zemits</h4><span class="price">2 400 ₴</span><small>Глибоке очищення та зволоження</small></div>
+        <div class="svc"><h4>Безін'єкційна біоревіталізація SkinFaktor</h4><span class="price">2 500 ₴</span><small>Зволоження без голок</small></div>
+        <div class="svc"><h4>Дермапен + мезококтейль</h4><span class="price">від 3 000 ₴</span><small>Рельєф, постакне, тонус</small></div>
+      </div>
+    </div>
+
+    <!-- Фотоепіляція -->
+    <div class="svc-panel" data-p="epil">
+      <div class="svc-feature">
+        <div class="bg" style="background-image:url(img/ipl.jpg);background-position:70% 30%"></div><div class="glow"></div>
+        <span class="tag">IPL · пакети вигідніші</span>
+        <h3>Фото&shy;епіляція</h3>
+        <p>Прибирає волосся надовго, без вростання й подразнення від бритви. Параметри підбираю під ваш тип шкіри й волосся.</p>
+        <div class="meta"><div><b>від 300 ₴</b><span>за зону</span></div><div><b>до −20%</b><span>у пакетах</span></div></div>
+        <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-light">Записатися <span class="arr">→</span></a>
+      </div>
+      <div class="svc-list">
+        <div class="list-label">Пакети</div>
+        <div class="svc hot"><h4>Пахви + бікіні глибоке</h4><span class="price"><s>1 490</s>1 200 ₴</span></div>
+        <div class="svc hot"><h4>Пахви + бікіні + ноги повністю</h4><span class="price"><s>3 440</s>2 750 ₴</span></div>
+        <div class="svc"><h4>Пахви + гомілки</h4><span class="price">1 300 ₴</span></div>
+        <div class="svc"><h4>Пахви + бікіні + гомілки</h4><span class="price">2 100 ₴</span></div>
+        <div class="list-label">Окремі зони</div>
+        <div class="svc"><h4>Верхня губа</h4><span class="price">300 ₴</span></div>
+        <div class="svc"><h4>Підборіддя</h4><span class="price">450 ₴</span></div>
+        <div class="svc"><h4>Пахви</h4><span class="price">500 ₴</span></div>
+        <div class="svc"><h4>Передпліччя</h4><span class="price">750 ₴</span></div>
+        <div class="svc"><h4>Бікіні глибоке</h4><span class="price">990 ₴</span></div>
+        <div class="svc"><h4>Гомілки</h4><span class="price">1 100 ₴</span></div>
+        <div class="svc"><h4>Ноги повністю</h4><span class="price">1 950 ₴</span></div>
+      </div>
+    </div>
+
+    <!-- Чистки й пілінги -->
+    <div class="svc-panel" data-p="peel">
+      <div class="svc-feature">
+        <div class="bg" style="background-image:url(img/massage.jpg)"></div><div class="glow"></div>
+        <span class="tag">DMK · Innoaesthetics · Glymed+ · MeLine</span>
+        <h3>Чистки й пілінги</h3>
+        <p>Пілінг для акне, постакне, пігментації чи почервоніння підбираю після огляду шкіри. Буває, що спершу потрібне відновлення, а не кислоти.</p>
+        <div class="meta"><div><b>від 2 000 ₴</b><span>пілінги</span></div><div><b>від 2 200 ₴</b><span>чистки DMK</span></div></div>
+        <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-light">Записатися <span class="arr">→</span></a>
+      </div>
+      <div class="svc-list">
+        <div class="list-label">Чистки DMK</div>
+        <div class="svc"><h4>Чистка обличчя</h4><span class="price">2 200 ₴</span></div>
+        <div class="svc"><h4>Чистка обличчя + пілінг</h4><span class="price">2 700 ₴</span></div>
+        <div class="svc hot"><h4>«Глибока ревізія шкіри»</h4><span class="price">2 900 ₴</span><small>Атравматична чистка</small></div>
+        <div class="svc"><h4>Чистка спини / + пілінг</h4><span class="price">3 000 / 3 800 ₴</span></div>
+        <div class="list-label">Пілінги</div>
+        <div class="svc"><h4>Innoaesthetics Redness / Skin recovery</h4><span class="price">2 100 ₴</span><small>Почервоніння, відновлення бар'єра</small></div>
+        <div class="svc"><h4>DMK Prozyme, Quick peel</h4><span class="price">2 200 ₴</span></div>
+        <div class="svc"><h4>Glymed+ саліциловий, ягідний TCA, пептидний</h4><span class="price">2 400 ₴</span></div>
+        <div class="svc"><h4>MeLine, обличчя</h4><span class="price">2 600 ₴</span><small>Пігментація</small></div>
+        <div class="svc"><h4>MeLine: очі, точковий, інтимні зони</h4><span class="price">2 000 ₴</span></div>
+      </div>
+    </div>
+
+    <!-- Догляди й масажі -->
+    <div class="svc-panel" data-p="care">
+      <div class="svc-feature">
+        <div class="bg" style="background-image:url(img/massage.jpg)"></div><div class="glow"></div>
+        <span class="tag">Сертифікований курс</span>
+        <h3>Фасціальне моделювання</h3>
+        <p>Дві години ручної роботи з фасціями й м'язами обличчя: контур, тонус, менше набряків. І час, коли можна просто видихнути.</p>
+        <div class="meta"><div><b>2 500 ₴</b><span>за сеанс</span></div><div><b>2 год</b><span>тривалість</span></div></div>
+        <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-light">Записатися <span class="arr">→</span></a>
+      </div>
+      <div class="svc-list">
+        <div class="list-label">Масажі</div>
+        <div class="svc hot"><h4>Фасціальне моделювання обличчя</h4><span class="price">2 500 ₴</span><small>120 хв</small></div>
+        <div class="svc"><h4>Периорбітальний масаж OCULA</h4><span class="price">2 300 ₴</span><small>Зона навколо очей · 60 хв</small></div>
+        <div class="svc"><h4>Лімфодренажний масаж з LED</h4><span class="price">1 700 ₴</span><small>90 хв</small></div>
+        <div class="list-label">Доглядові процедури</div>
+        <div class="svc"><h4>Glymed+ Barrier repair / Anti-redness</h4><span class="price">2 400 ₴</span><small>Чутлива шкіра, почервоніння</small></div>
+        <div class="svc"><h4>Glymed+ Pregnancy facial</h4><span class="price">2 400 ₴</span><small>Безпечний догляд під час вагітності</small></div>
+        <div class="svc"><h4>Dr.Spiller «Нехірургічна підтяжка»</h4><span class="price">2 400 ₴</span></div>
+        <div class="svc"><h4>Ферментотерапія DMK</h4><span class="price">2 500–3 900 ₴</span></div>
+      </div>
+    </div>
+
+    <!-- Ін'єкційні -->
+    <div class="svc-panel" data-p="inj">
+      <div class="svc-feature">
+        <div class="bg" style="background-image:url(img/study.jpg);background-position:70% 40%"></div><div class="glow"></div>
+        <span class="tag">Тільки після консультації</span>
+        <h3>Ін'єкційні методики</h3>
+        <p>Препарат і дозування обираю після огляду, з урахуванням анамнезу й протипоказань.</p>
+        <div class="meta"><div><b>від 1 500 ₴</b><span>ботулінотерапія</span></div><div><b>від 2 800 ₴</b><span>мезотерапія</span></div></div>
+        <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-light">Записатися на консультацію <span class="arr">→</span></a>
+      </div>
+      <div class="svc-list">
+        <div class="svc"><h4>Біоревіталізація</h4><span class="price">4 800–7 200 ₴</span></div>
+        <div class="svc"><h4>Мезотерапія Innoaesthetics</h4><span class="price">2 800–3 000 ₴</span><small>Обличчя, зокрема волосся</small></div>
+        <div class="svc"><h4>Полінуклеотиди</h4><span class="price">4 200–6 600 ₴</span></div>
+        <div class="svc"><h4>Ботулінотерапія</h4><span class="price">від 1 500 ₴</span><small>Верхня третина обличчя: 7 800 ₴</small></div>
+      </div>
+    </div>
+
+    <!-- Тіло -->
+    <div class="svc-panel" data-p="body">
+      <div class="svc-feature">
+        <div class="bg" style="background-image:url(img/online.jpg);background-position:50% 30%"></div><div class="glow"></div>
+        <span class="tag">Нове в прайсі</span>
+        <h3>Догляд за тілом</h3>
+        <p>Ензимна терапія DMK та обгортання для тонусу, пружності й гладкої шкіри.</p>
+        <div class="meta"><div><b>від 700 ₴</b><span>обгортання</span></div><div><b>від 2 500 ₴</b><span>ензимна терапія</span></div></div>
+        <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-light">Записатися <span class="arr">→</span></a>
+      </div>
+      <div class="svc-list">
+        <div class="svc"><h4>Ензимна терапія DMK, тіло</h4><span class="price">2 500–6 600 ₴</span><small>Залежно від зони</small></div>
+        <div class="svc"><h4>Обгортання</h4><span class="price">700–2 000 ₴</span></div>
+      </div>
+    </div>
+
+    <p class="note">Повний прайс зі складом процедур надішлю після консультації або в Instagram. Курс і кількість сеансів обираю індивідуально.</p>
+  </div>
+</section>
+
+<!-- 4. PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <span class="eyebrow rv">Як я працюю</span>
+    <h2 class="split" style="margin-top:18px;max-width:900px">Не найкраща процедура, а <em>найкраща стратегія</em></h2>
+    <p class="quote rv">«На консультації я не шукаю для вас найкращу процедуру, я шукаю найкращу стратегію».</p>
+    <div class="steps" id="steps">
+      <div class="rail"><i></i></div>
+      <div class="step"><div class="dot">1</div><h3>Консультація</h3><p>Збираю анамнез, з'ясовую ваш запит, дивлюся шкіру. Шукаю причину, а не лише наслідок.</p></div>
+      <div class="step"><div class="dot">2</div><h3>Домашній догляд</h3><p>Розбираю, чим ви користуєтесь зараз, і коригую. Без цього жодна процедура не дасть стабільного результату.</p></div>
+      <div class="step"><div class="dot">3</div><h3>Процедури</h3><p>Призначаю їх лише тоді, коли вони справді потрібні: у правильній послідовності й з сучасними протоколами.</p></div>
+      <div class="step"><div class="dot">4</div><h3>Супровід</h3><p>Веду вас протягом усього курсу і коригую догляд, коли шкіра змінюється.</p></div>
+    </div>
+    <div class="consult rv">
+      <div class="big">950<small> ₴</small><em>консультація</em></div>
+      <ul>
+        <li>збір анамнезу</li>
+        <li>розбір і корекція домашнього догляду</li>
+        <li>план процедур, якщо вони потрібні</li>
+        <li>супровід протягом курсу</li>
+      </ul>
+      <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-light magnetic">Записатися онлайн <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ONLINE -->
+<section class="online" id="online">
+  <div class="wrap online-grid">
+    <div class="online-photo rv">
+      <img src="img/online.jpg" alt="Ярина проводить онлайн-консультацію" loading="lazy">
+      <span class="live">Онлайн-консультація</span>
+    </div>
+    <div>
+      <span class="eyebrow rv">Не у Львові?</span>
+      <h2 class="split" style="margin-top:18px">Консультую <em>онлайн</em></h2>
+      <p class="rv d1 muted" style="margin-top:22px;max-width:480px">Працюю у Львові, але консультую й онлайн: коли потрібно підібрати домашній догляд або почути другу професійну думку.</p>
+      <div class="online-list">
+        <div class="rv d1"><b>Підбір догляду</b><span>Засоби під ваш тип шкіри й запит, без зайвих баночок</span></div>
+        <div class="rv d2"><b>Друга думка</b><span>Розберу ваш план процедур чи призначення іншого фахівця</span></div>
+      </div>
+      <a href="https://www.instagram.com/sikora_beauty/" target="_blank" rel="noopener" class="btn btn-primary magnetic rv d3">Написати в Instagram <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. BEFORE / AFTER -->
+<section class="ba" id="results">
+  <div class="wrap ba-grid">
+    <div>
+      <span class="eyebrow rv">До / після</span>
+      <h2 class="split" style="margin-top:18px">Результати <em>без ретуші</em></h2>
+      <div class="honest rv d1"><p>«Я ніколи не ретушую фотографій, бо це, як мінімум, не чесно».</p></div>
+      <div class="filters rv d2" id="baFilters">
+        <button class="on" data-i="0">Фотоомолодження</button>
+        <button data-i="1">Мигдалевий пілінг</button>
+      </div>
+      <div class="ba-case rv d3" id="baCase"></div>
+    </div>
+    <div class="slider-wrap rv d2">
+      <div class="slider" id="slider">
+        <img class="before" id="baBefore" src="img/ba-ipl-before.jpg" alt="До процедури">
+        <img class="after" id="baAfter" src="img/ba-ipl-after.jpg" alt="Після процедури">
+        <span class="lbl l">До</span><span class="lbl r">Після</span>
+        <div class="handle"><span>‹ ›</span></div>
+      </div>
+      <p class="drag-hint">← потягніть →</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo rv">
+      <div class="frame"><img src="img/study.jpg" alt="Ярина вивчає анатомію обличчя на моделі черепа" loading="lazy"><div class="sweep" style="animation-delay:-3s"></div></div>
+      <div class="ipl"><img src="img/ipl.jpg" alt="Ярина з апаратом Alvi Prague IPL" loading="lazy"></div>
+      <div class="stamp"><b>Постійно навчаюся</b><span>щоб ви отримували не лише приємні процедури, а сучасні й обґрунтовані рішення</span></div>
+    </div>
+    <div>
+      <span class="eyebrow rv">Про мене</span>
+      <blockquote class="rv">«Мене звати Ярина Сікора, я косметолог і допомагаю людям розібратися зі своєю шкірою».</blockquote>
+      <p class="rv d1">Понад 5 років працюю косметологинею. Основну медичну освіту доповнила курсом медичної косметології, тому дивлюся на шкіру як на частину організму.</p>
+      <p class="rv d2">Поєдную професійні процедури, домашній догляд, сучасні протоколи й індивідуальний підхід, бо результат дає саме комплексна робота. А складне пояснюю простою мовою, без міфів і зайвих обіцянок.</p>
+      <div class="creds rv d3">
+        <div><b>Освіта</b>Вища медична + «Медична косметологія»</div>
+        <div><b>Сертифікат</b>Фасціальне моделювання та ізометричний ліфтинг обличчя</div>
+        <div><b>Апарати</b>Alvi Prague IPL, Zemits, SkinFaktor, LED</div>
+        <div><b>Досвід</b>5+ років практики</div>
+      </div>
+      <div class="safe rv d4"><i>✚</i><div><b>Знайте: у мене ви в безпеці.</b> Пройшла курс «Невідкладні ситуації на прийомі у косметолога» і знаю, що робити, якщо вам раптом стане погано.</div></div>
+      <img class="signature rv d4" src="img/logo-sb.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- 7. BRANDS -->
+<section class="brands">
+  <div class="wrap">
+    <span class="eyebrow rv">Бренди, з якими працюю</span>
+    <h2 class="split" style="margin-top:18px">Офіційна <em>амбасадорка</em></h2>
+    <div class="brand-row">
+      <div class="brand rv d1"><b>Dr.Spiller</b><small>амбасадорка</small></div>
+      <div class="brand rv d2"><b>Innoaesthetics</b><small>амбасадорка</small></div>
+      <div class="brand rv d3"><b>MeLine</b><small>амбасадорка</small></div>
+      <div class="brand rv d4"><b>Glymed+</b><small>амбасадорка</small></div>
+    </div>
+    <p class="also rv">Також працюю з <b>DMK</b> та <b>Braderm</b></p>
+  </div>
+</section>
+
+<!-- 8. REVIEWS -->
+<section class="reviews">
+  <div class="wrap">
+    <span class="eyebrow rv">Відгуки</span>
+    <h2 class="split" style="margin-top:18px">Листи <em>від клієнток</em></h2>
+    <div class="rev-grid">
+      <div class="rev rv d1"><div class="stars">★★★★★</div><p>«Дуже дякую за грамотну консультацію, підбір засобів для домашнього догляду і за дієвий курс фотоомолодження. Шкіра ожила, посвітлішала, вирівнявся рельєф і тон, і це лише після кількох процедур!»</p><div class="who">Фотоомолодження IPL</div></div>
+      <div class="rev rv d2"><div class="stars">★★★★★</div><p>«Ти проста й позитивна людина без корони на голові, з тобою почуваєш себе в безпеці».</p><div class="who">Подарункова консультація для сестри</div></div>
+      <div class="rev rv d3"><div class="stars">★★★★★</div><p>«Руки супер, ще й маска доповнює результат. Була на лижах цих вихідних, і та маска врятувала моє обличчя».</p><div class="who">Біоревіталізація рук + домашній догляд</div></div>
+    </div>
+    <div class="rev-more rv"><a href="https://www.instagram.com/sikora_beauty/" target="_blank" rel="noopener" class="btn btn-ghost">Більше відгуків в Instagram <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow rv">Часті запитання</span>
+      <h2 class="split" style="margin-top:18px">Перш ніж <em>записатися</em></h2>
+      <p class="rv d1 muted" style="margin-top:24px;max-width:340px">Не знайшли відповіді? Напишіть мені в Instagram, відповідаю особисто.</p>
+    </div>
+    <div>
+      <div class="qa open"><button>Навіщо платна консультація?<span class="pm"></span></button><div class="ans"><div><p>Це не «продаж» процедури, а повноцінний розбір: анамнез, ваш запит, аналіз домашнього догляду і план. Іноді виявляється, що процедури взагалі не потрібні, досить змінити догляд. Далі я супроводжую вас протягом курсу.</p></div></div></div>
+      <div class="qa"><button>Чи боляче робити фотоепіляцію?<span class="pm"></span></button><div class="ans"><div><p>Зазвичай відчувається тепло чи легке поколювання. Параметри апарата підбираю під ваш тип шкіри й волосся, щоб було комфортно.</p></div></div></div>
+      <div class="qa"><button>Скільки потрібно процедур?<span class="pm"></span></button><div class="ans"><div><p>Залежить від запиту й стану шкіри. Наприклад, у кейсі з фотоомолодженням помітні зміни були вже після 4 процедур. Точну кількість назву на консультації.</p></div></div></div>
+      <div class="qa"><button>Чи є протипоказання?<span class="pm"></span></button><div class="ans"><div><p>Так, і саме тому кожна процедура починається з анамнезу. Під час вагітності є окремий безпечний догляд, Glymed+ Pregnancy facial.</p></div></div></div>
+      <div class="qa"><button>Чи можна робити процедури влітку?<span class="pm"></span></button><div class="ans"><div><p>Частину можна. Світлові процедури й активні пілінги краще планувати на сезон з меншою кількістю сонця. Розповім, що підійде саме вам.</p></div></div></div>
+      <div class="qa"><button>Чи можна проконсультуватися, якщо я не у Львові?<span class="pm"></span></button><div class="ans"><div><p>Так, я консультую онлайн: підбираю домашній догляд і даю другу професійну думку.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CONTACT -->
+<section class="contact" id="contact">
+  <div class="orb a"></div>
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow rv" style="color:var(--gold-soft)">Запис і контакти</span>
+      <h2 class="split" style="margin-top:18px">Залишайтеся <em>зі&nbsp;мною</em></h2>
+      <p class="lead rv">Онлайн-запис працює 24/7. Почніть із консультації, а стратегію для вашої шкіри складемо разом.</p>
+      <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-light magnetic rv">Записатися онлайн <span class="arr">→</span></a>
+    </div>
+    <div class="info rv d2">
+      <a href="https://maps.google.com/?q=Львів,+вул.+Янева,+23" target="_blank" rel="noopener"><small>Адреса</small><span>Львів, вул. Янева, 23<em>ЖК «Америка»</em></span></a>
+      <div><small>Графік</small><span>Пн–Сб за записом<em>неділя — вихідний</em></span></div>
+      <a href="https://www.instagram.com/sikora_beauty/" target="_blank" rel="noopener"><small>Instagram</small><span>@sikora_beauty</span></a>
+      <a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener"><small>Онлайн-запис</small><span>bookon.ua →</span></a>
+      <!-- TODO: телефон / Telegram / Viber від Ярини -->
+    </div>
+  </div>
+  <svg class="lviv" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#2E1A3B" d="M0 180V120h60v-20l30-30 30 30v20h40V90h20V60l12-30 12 30v30h20v30h50v-40l40-30 40 30v40h30V70h14l6-40 6 40h14v50h60v-30h30l30-40 30 40v30h40V80l22-50 22 50v40h50v-50h20V40l14-22 14 22v30h20v50h60v-40h30l40-30 40 30v40h40V60h10l10-30 10 30h10v60h40V90l30-26 30 26v30h50V70l20-24 20 24v50h50v-30h30V50l18-34 18 34v40h30v30h60V80l40-30 40 30v40h60v60z"/>
+    <g fill="#C8A97E" opacity=".8"><rect x="204" y="100" width="6" height="10"/><rect x="420" y="96" width="6" height="10"/><rect x="690" y="92" width="6" height="10"/><rect x="980" y="104" width="6" height="10"/><rect x="1196" y="98" width="6" height="10"/><rect x="1300" y="106" width="6" height="10"/></g>
+  </svg>
+</section>
+<footer><div class="wrap"><img src="img/logo-sb-light.png" alt="Sikora Beauty"><span>© 2026 Sikora Beauty · косметологиня Ярина Сікора · Львів</span></div></footer>
+
+<div class="mcta" id="mcta"><a href="https://bookon.ua/s/sikora_beauty" target="_blank" rel="noopener" class="btn btn-primary">Записатися на консультацію <span class="arr">→</span></a></div>
+
+<script>
+(()=>{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+
+// split headings into words
+$$('.split').forEach(h=>{
+  const walk=node=>[...node.childNodes].forEach(n=>{
+    if(n.nodeType===3){
+      const f=document.createDocumentFragment();
+      n.textContent.split(/([ \t\n\r]+)/).forEach(t=>{
+        if(!t)return; if(/^[ \t\n\r]+$/.test(t)){f.append(t);return}
+        const w=document.createElement('span');w.className='w';const i=document.createElement('span');i.textContent=t;w.append(i);f.append(w);
+      });
+      n.replaceWith(f);
+    } else if(n.nodeType===1) walk(n);
+  });
+  walk(h);
+  $$('.w>span',h).forEach((s,i)=>s.style.transitionDelay=(i*.06)+'s');
+});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -40px'});
+$$('.rv,.split').forEach(el=>io.observe(el));
+
+const co=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;co.unobserve(e.target);
+  const el=e.target,to=+el.dataset.count,suf=el.dataset.suffix||'';let t0;
+  const tick=t=>{t0??=t;const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+(p===1?suf:'');if(p<1)requestAnimationFrame(tick)};
+  reduce?el.textContent=to+suf:requestAnimationFrame(tick);
+}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+
+const nav=$('#nav'),mcta=$('#mcta'),steps=$('#steps'),rail=$('.rail i',steps),stepEls=$$('.step',steps),contact=$('#contact');
+const onScroll=()=>{
+  nav.classList.toggle('scrolled',scrollY>30);
+  mcta.classList.toggle('show',scrollY>innerHeight*.7&&contact.getBoundingClientRect().top>innerHeight*.6);
+  const r=steps.getBoundingClientRect();
+  const p=Math.max(0,Math.min(1,(innerHeight*.75-r.top)/(r.height+innerHeight*.2)));
+  rail.style.setProperty('--p',p);
+  stepEls.forEach((s,i)=>s.classList.toggle('lit',innerWidth<1080?s.getBoundingClientRect().top<innerHeight*.7:p>=i/stepEls.length+.02));
+};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+const g=$('#cglow');
+if(!reduce&&matchMedia('(pointer:fine)').matches){
+  addEventListener('pointermove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+  $$('.pcard,.btn-primary').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')}));
+  $$('.magnetic').forEach(b=>{
+    b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.3}px)`});
+    b.addEventListener('pointerleave',()=>b.style.transform='');
+  });
+  const hv=$('#heroVisual');
+  hv.addEventListener('pointermove',e=>{const r=hv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;$$('[data-depth]',hv).forEach(el=>{const d=+el.dataset.depth;el.style.translate=`${x*d}px ${y*d}px`})});
+  hv.addEventListener('pointerleave',()=>$$('[data-depth]',hv).forEach(el=>el.style.translate=''));
+} else g.style.display='none';
+
+// tabs
+const tabs=$('#tabs'),pill=$('.pill',tabs);
+const movePill=()=>{const on=$('button.on',tabs);pill.style.left=on.offsetLeft+'px';pill.style.width=on.offsetWidth+'px';pill.style.top=on.offsetTop+'px';pill.style.height=on.offsetHeight+'px'};
+const setTab=t=>{$$('button',tabs).forEach(b=>b.classList.toggle('on',b.dataset.t===t));$$('.svc-panel').forEach(p=>p.classList.toggle('on',p.dataset.p===t));movePill()};
+$$('button',tabs).forEach(b=>b.onclick=()=>setTab(b.dataset.t));
+$$('[data-tab]').forEach(a=>a.addEventListener('click',()=>setTab(a.dataset.tab)));
+addEventListener('resize',movePill);document.fonts.ready.then(movePill);
+
+// before/after
+const sl=$('#slider');
+const setX=cx=>{const r=sl.getBoundingClientRect();sl.style.setProperty('--x',Math.max(0,Math.min(100,(cx-r.left)/r.width*100))+'%')};
+let drag=false;
+sl.addEventListener('pointerdown',e=>{drag=true;sl.setPointerCapture(e.pointerId);setX(e.clientX)});
+sl.addEventListener('pointermove',e=>drag&&setX(e.clientX));
+sl.addEventListener('pointerup',()=>drag=false);
+const cases=[
+  {t:'Фотоомолодження IPL · 4 процедури',b:'img/ba-ipl-before.jpg',a:'img/ba-ipl-after.jpg',ar:185/385,
+   l:['менше зморшок, і вони стали дрібнішими','шкіра посвітлішала: менше пігментації й судинок','знизилась чутливість шкіри']},
+  {t:'Мигдалевий пілінг · 6 процедур',b:'img/ba-peel-before.jpg',a:'img/ba-peel-after.jpg',ar:198/352,
+   l:['пігментація після сонця (УФ) стала помітно світлішою','працює м\'яко, практично без реабілітації']},
+];
+const setCase=i=>{
+  const c=cases[i];
+  $$('#baFilters button').forEach((b,j)=>b.classList.toggle('on',j==i));
+  $('#baBefore').src=c.b;$('#baAfter').src=c.a;sl.style.setProperty('--ar',c.ar);
+  $('#baCase').innerHTML=`<b>${c.t}</b><ul>${c.l.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  if(!reduce){const s=performance.now();const a=t=>{const p=Math.min((t-s)/1000,1);sl.style.setProperty('--x',(85-35*(1-Math.pow(1-p,3)))+'%');if(p<1)requestAnimationFrame(a)};requestAnimationFrame(a)}
+};
+$$('#baFilters button').forEach(b=>b.onclick=()=>setCase(+b.dataset.i));
+setCase(0);
+
+$$('.qa button').forEach(b=>b.onclick=()=>{const q=b.parentElement,o=q.classList.contains('open');$$('.qa').forEach(x=>x.classList.remove('open'));if(!o)q.classList.add('open')});
+})();
+</script>
+</body>
+</html>
